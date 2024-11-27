@@ -1,0 +1,111 @@
+/* form.css */
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to right, #347a92, #347a92);
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+  
+  header {
+    background-color: #015b90bd;
+    color: white;
+    padding: 1rem;
+  }
+  
+  nav a {
+    margin: 0 1rem;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+  }
+  
+  nav a:hover {
+    text-decoration: underline;
+  }
+  
+  .form-section {
+    margin: 2rem auto;
+    width: 80%;
+    max-width: 600px;
+    background-color: rgba(255, 255, 255, 0.628);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  .input-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #000000;
+  }
+  
+  input, textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1rem;
+  }
+  
+  button {
+    background-color: #3498db;
+    color: white;
+    border: none;
+    padding: 0.75rem 1.5rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  
+  .reset-btn {
+    background-color: #e74c3c;
+  }
+  
+  .reset-btn:hover {
+    background-color: #c0392b;
+  }
+  
+  table {
+    width: 80%;
+    margin: 2rem auto;
+    border-collapse: collapse;
+  }
+  
+  th, td {
+    padding: 1rem;
+    border: 1px solid #ccc;
+    text-align: center;
+  }
+  
+  th {
+    background-color: #3498db;
+    color: white;
+    animation: bounce 2s infinite;
+  }
+  
+  td button {
+    background-color: #5cb85c;
+  }
+  
+  td button:hover {
+    background-color: #4cae4c;
+  }
+  
+  /* Animación de encabezados */
+  @keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+  }
+  
