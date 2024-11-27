@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Operaciones de Empleados</title>
+  <link rel="stylesheet" href="styles/table.css">
+</head>
+<body>
+  <header>
+    <h1>Operaciones Disponibles</h1>
+    <nav>
+      <a href="main.html">Página Principal</a>
+      <a href="form.html">Formulario</a>
+      <a href="index.html">Cerrar Sesión</a>
+    </nav>
+  </header>
+
+  <section class="table-section">
+    <table>
+      <thead>
+        <tr>
+          <th>OPERACIÓN</th>
+          <th>DESCRIPCIÓN</th>
+          <th>BOTONES</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>CÁLCULO SALARIO</td>
+          <td>Ingresar el salario y el descuento para calcular el total</td>
+          <td><button onclick="calculateSalary()">CALCULAR</button></td>
+        </tr>
+        <tr>
+          <td>Total de puntos</td>
+          <td>Ingresar 3 puntajes y calcular el total</td>
+          <td><button onclick="calculatePoints()">CALCULAR</button></td>
+        </tr>
+        <tr>
+          <td>PORCENTAJE DE PUNTO</td>
+          <td>Ingresar un puntaje y calcular el 15% del puntaje</td>
+          <td><button onclick="calculatePercentage()">CALCULAR</button></td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <script src="scripts/form.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+/* styles/table.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #347a92;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #0d89e8;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+}
+
+nav a {
+    color: rgb(255, 255, 255);
+    margin: 0 10px;
+    text-decoration: none;
+}
+
+nav a:hover {
+    text-decoration: underline;
+}
+
+.table-section {
+    width: 80%;
+    margin: 2rem auto;
+    background: rgba(255, 255, 255, 0.478);
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    border: 1px solid #000000;
+    padding: 1rem;
+    text-align: center;
+}
+
+th {
+    background-color: #16a7dc;
+    color: white;
+    animation: bounceHeader 2s infinite; /* Animación suave para los encabezados */
+    text-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); /* Sombra suave */
+}
+
+/* Animación de rebote suave para los encabezados */
+@keyframes bounceHeader {
+    0% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-5px); /* Rebote hacia arriba */
+    }
+    50% {
+        transform: translateY(0); /* Regresa a la posición original */
+    }
+    75% {
+        transform: translateY(-3px); /* Rebote hacia arriba de nuevo, pero menos intenso */
+    }
+    100% {
+        transform: translateY(0); /* Termina en la posición inicial */
+    }
+}
+
+button {
+    padding: 0.5rem 1rem;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #45a049;
+}
