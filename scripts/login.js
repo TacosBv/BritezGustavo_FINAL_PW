@@ -1,11 +1,10 @@
-// scripts/login.js
-
 document.getElementById('login-form').addEventListener('submit', function(event) {
   event.preventDefault(); // Evita el comportamiento por defecto del formulario
 
   const username = document.getElementById('username').value.trim();
   const password = document.getElementById('password').value.trim();
   const errorMessage = document.getElementById('error-message');
+  const successMessage = document.getElementById('success-message'); // Mensaje de éxito
 
   console.log('Formulario enviado', { username, password });
 
@@ -21,6 +20,10 @@ document.getElementById('login-form').addEventListener('submit', function(event)
     // Guardar el estado de inicio de sesión exitoso en localStorage
     localStorage.setItem('loggedIn', true);
 
+    // Mostrar el mensaje de éxito y ocultar el de error
+    successMessage.style.display = 'block';
+    errorMessage.style.display = 'none';
+
     // Redirección después de 1 segundo
     setTimeout(function() {
       window.location.href = 'main.html';
@@ -28,7 +31,9 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
   } else {
     console.log('Credenciales incorrectas');
+    // Mostrar el mensaje de error y ocultar el de éxito
     errorMessage.style.display = 'block';
+    successMessage.style.display = 'none';
   }
 });
 
