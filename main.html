@@ -5,139 +5,36 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Página Principal</title>
   <link rel="stylesheet" href="styles/main.css">
-  <style>
-    /* Estilos para el mensaje de sesión iniciada */
-    #session-success-message {
-      background-color: rgba(0, 128, 0, 0.751);
-      color: white;
-      text-align: center;
-      font-size: 18px;
-      padding: 10px;
-      width: 100%;
-      position: absolute;
-      top: 0;
-      left: 0;
-      z-index: 999; /* Asegura que esté por encima de otros elementos */
-      display: none;
-    }
-
-    /* Estilo para la franja negra del header */
-    header {
-      background-color: rgb(15, 70, 118);
-      color: white;
-      padding: 20px;
-      position: relative; /* Necesario para que el mensaje se posicione encima */
-    }
-
-    h1 {
-      margin: 0;
-    }
-  </style>
 </head>
 <body>
-  <!-- Mensaje de éxito de inicio de sesión -->
-  <div id="session-success-message">
-    <p>¡Sesión iniciada con éxito!</p>
-  </div>
-
-  <header>
-    <h1>Bienvenido a la Página Principal</h1>
+  <header id="header" style="display: none;">
+    <h1 id="welcome-message"></h1>
     <nav>
+      <a href="main.html">Inicio</a>
+      <a href="apis.html">Apis</a>
       <a href="form.html">Formulario</a>
       <a href="table.html">Operaciones</a>
       <a href="index.html">Cerrar Sesión</a>
     </nav>
   </header>
 
-  <section class="api-section">
-    <button onclick="loadMemes()">Ver Memes</button> <!-- Botón para cargar memes -->
-    <button id="fetch-joke-btn">API de Chistes</button> <!-- Botón para cargar chistes -->
-  </section>  
-
-  <section class="contact-section">
-    <h2>Déjame conocerte :D</h2>
-    <form id="contact-form">
-      <div class="input-group">
-        <label for="name">Nombre:</label>
-        <input type="text" id="name" placeholder="Tu nombre" required>
-      </div>
-
-      <div class="input-group">
-        <label for="age">Edad:</label>
-        <input type="number" id="age" placeholder="Tu edad" required>
-      </div>
-
-      <button type="submit">Enviar</button>
-    </form>
-  </section>
-
-  <!-- Sección para mostrar los memes o chistes -->
-  <div id="api-content"></div> 
-
-  <!-- Incluir el script de EmailJS antes de cargar main.js -->
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
-
-  <!-- Luego, carga el archivo de script principal -->
   <script src="scripts/main.js"></script>
 
   <script>
-    // Función para cargar memes
-    function loadMemes() {
-      fetch('https://meme-api.com/gimme/6')  // URL para obtener 6 memes aleatorios
-        .then(response => response.json())
-        .then(memes => {
-          const apiContent = document.getElementById('api-content');
-          apiContent.innerHTML = '';  // Limpia el contenido previo
-
-          memes.memes.forEach(meme => {
-            const imgElement = document.createElement('img');
-            imgElement.src = meme.url;  // La URL de la imagen del meme
-            imgElement.alt = meme.title;
-            imgElement.style.width = '200px';
-            imgElement.style.margin = '10px';
-            apiContent.appendChild(imgElement);
-          });
-        })
-        .catch(error => console.error('Error al cargar memes:', error));
-    }
-
-    // Función para obtener chistes
-    function fetchJoke() {
-      fetch('https://v2.jokeapi.dev/joke/Any?lang=es')
-        .then(response => response.json())
-        .then(joke => {
-          const apiContent = document.getElementById('api-content');
-          apiContent.innerHTML = ''; // Limpiar contenido previo
-
-          // Mostrar el chiste dependiendo de su tipo
-          if (joke.type === 'single') {
-            // Chiste simple (sin pregunta/respuesta)
-            apiContent.innerHTML = `<p>${joke.joke}</p>`;
-          } else if (joke.type === 'twopart') {
-            // Chiste de tipo pregunta/respuesta
-            apiContent.innerHTML = `<p><strong>${joke.setup}</strong></p><p>${joke.delivery}</p>`;
-          } else {
-            apiContent.innerHTML = `<p>No se pudo obtener un chiste.</p>`;
-          }
-        })
-        .catch(error => console.error('Error al obtener chiste:', error));
-    }
-
-    // Enlazar la función fetchJoke al botón
-    document.getElementById('fetch-joke-btn').addEventListener('click', fetchJoke);
-
-    // Mostrar el mensaje de éxito de inicio de sesión por 3 segundos
     window.onload = function() {
-      const isLoggedIn = localStorage.getItem('loggedIn'); // Verifica si el usuario está logueado
+      // Verifica si el usuario está logueado
+      const isLoggedIn = localStorage.getItem('loggedIn');
 
-      if (isLoggedIn) {
-        const successMessage = document.getElementById('session-success-message');
-        successMessage.style.display = 'block'; // Mostrar mensaje
-        setTimeout(function() {
-          successMessage.style.display = 'none'; // Ocultar después de 3 segundos
-        }, 1000);
-        
-        localStorage.removeItem('loggedIn'); // Limpiar la variable de sesión después de mostrar el mensaje
+      if (isLoggedIn && !localStorage.getItem('welcomeShown')) {
+        // Mostrar el mensaje de bienvenida solo la primera vez al recargar la página
+        alert('¡Bienvenido!');
+        document.getElementById('header').style.display = 'block'; // Mostrar el header con el mensaje de bienvenida
+
+        // Guardar que el mensaje de bienvenida ya ha sido mostrado
+        localStorage.setItem('welcomeShown', 'true');
+
+        // Limpiar la variable de sesión después de mostrar el mensaje
+        localStorage.removeItem('loggedIn');
       }
     };
   </script>

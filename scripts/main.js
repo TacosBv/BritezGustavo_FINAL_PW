@@ -1,77 +1,38 @@
-document.addEventListener('DOMContentLoaded', function() {
-  // Aquí va todo tu código JavaScript que interactúa con el DOM
+document.addEventListener('DOMContentLoaded', function () {
+  const header = document.getElementById('header');
+  const welcomeMessage = document.getElementById('welcome-message');
 
-  // Formulario de contacto
-  document.getElementById('contact-form').addEventListener('submit', function(event) {
-    event.preventDefault(); // Evitar que el formulario se envíe de manera tradicional
-    
-    const name = document.getElementById('name').value.trim();
-    const age = document.getElementById('age').value.trim();
+  // Función para mostrar el mensaje de bienvenida con el nombre
+  function showWelcomeMessage(userName) {
+    // Muestra el mensaje de bienvenida en el encabezado
+    welcomeMessage.textContent = `Bienvenido, ${userName}!`;
 
-    // Inicializar EmailJS
-    emailjs.init("30PzRh_uThUa6RqC-");
+    // Muestra el header con el mensaje de bienvenida
+    header.style.display = 'block';
 
-    // Enviar correo con los datos del formulario
-    emailjs.send("service_eb5hbwf", "template_e64mqmu", {
-      user: "Usuario de prueba",  // Cambiar esto por el nombre de usuario si lo tienes
-      login_time: new Date().toLocaleString(),
-      name: name,                 // Nombre del usuario
-      age: age                    // Edad del usuario
-    })
-    .then(() => {
-      alert('Correo enviado correctamente.');
-    })
-    .catch(error => {
-      alert('Error al enviar el correo.');
-      console.error('Error:', error);
-    });
-  });
-
-  // Función para cargar imágenes
-  function loadMemes() {
-    fetch('https://meme-api.com/gimme/6')  // Esta URL devuelve 6 memes aleatorios
-      .then(response => response.json())
-      .then(memes => {
-        const apiContent = document.getElementById('api-content');
-        apiContent.innerHTML = '';  // Limpia el contenido previo
-  
-        memes.memes.forEach(meme => {
-          const imgElement = document.createElement('img');
-          imgElement.src = meme.url;  // La URL de la imagen del meme
-          imgElement.alt = meme.title;
-          imgElement.style.width = '200px';
-          imgElement.style.margin = '10px';
-          apiContent.appendChild(imgElement);
-        });
-      })
-      .catch(error => console.error('Error al cargar memes:', error));
-  }
-  
-
-  // Función para obtener chistes
-  function fetchJoke() {
-    fetch('https://v2.jokeapi.dev/joke/Any?lang=es')
-      .then(response => response.json())
-      .then(joke => {
-        const apiContent = document.getElementById('api-content');
-        apiContent.innerHTML = ''; // Limpiar contenido previo
-
-        // Mostrar el chiste dependiendo de su tipo
-        if (joke.type === 'single') {
-          // Chiste simple (sin pregunta/respuesta)
-          apiContent.innerHTML = `<p>${joke.joke}</p>`;
-        } else if (joke.type === 'twopart') {
-          // Chiste de tipo pregunta/respuesta
-          apiContent.innerHTML = `<p><strong>${joke.setup}</strong></p><p>${joke.delivery}</p>`;
-        } else {
-          apiContent.innerHTML = `<p>No se pudo obtener un chiste.</p>`;
-        }
-      })
-      .catch(error => console.error('Error al obtener chiste:', error));
+    // Muestra la bienvenida final en una ventana emergente
+    alert(`Bienvenido, ${userName}!`);
   }
 
-  // Asignar los eventos de clic a los botones
-  document.getElementById('load-images-btn').addEventListener('click', loadImages);
-  document.getElementById('fetch-joke-btn').addEventListener('click', fetchJoke);
+  // Función que pide el nombre al usuario
+  function askForName() {
+    let userName = '';
 
+    // Primera ventana emergente: mensaje general de bienvenida
+    alert('¡Bienvenido!');
+
+    // Pedir el nombre al usuario (ventana emergente de prompt)
+    while (!userName.trim()) {
+      userName = prompt('Por favor, ingresa tu nombre:');
+      
+      if (userName && userName.trim() !== '') {
+        // Si el nombre es válido, muestra la bienvenida
+        showWelcomeMessage(userName);
+      } else {
+        alert('Por favor ingresa un nombre válido.');
+      }
+    }
+  }
+
+  askForName();  // Llama a la función para iniciar el flujo de ventanas emergentes
 });

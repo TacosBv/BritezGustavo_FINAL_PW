@@ -1,5 +1,3 @@
-/* main.css */
-/* main.css */
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to right, #347a92, #347a92);
@@ -39,7 +37,7 @@ nav a:hover {
 
 /* Sección específica para botones */
 button {
-  background-color: #3498db;
+  background-color: #0d89e8;
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -51,7 +49,7 @@ button {
 }
 
 button:hover {
-  background-color: #2980b9;
+  background-color: #022d859d;
 }
 
 /* Otros estilos */
@@ -59,13 +57,12 @@ button:hover {
   margin: 2rem;
 }
 
-  
-  #api-content {
-    margin-top: 2rem;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
+#api-content {
+  margin-top: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
 
 /* Estilos específicos para la sección de contacto */
 .contact-section {
@@ -120,7 +117,7 @@ button:hover {
 
 /* Botón */
 .contact-section button {
-  background-color: #3498db;
+  background-color: #0d89e8;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -131,7 +128,6 @@ button:hover {
 }
 
 .contact-section button:hover {
-  background-color: #2980b9;
+  background-color: #022d859d;
   transform: translateY(-2px); /* Efecto de elevación leve */
 }
-
