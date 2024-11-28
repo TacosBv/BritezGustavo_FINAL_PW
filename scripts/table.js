@@ -1,40 +1,39 @@
-// Funciones de la tabla
-
-// Función para calcular el salario
-function calculateSalary() {
-    const salary = prompt("Ingrese el salario:");
-    const discount = prompt("Ingrese el descuento:");
+// Función para calcular el precio total (precio unitario * cantidad)
+function calculateTotalPrice() {
+    const price = parseFloat(prompt("Ingrese el precio unitario:"));
+    const quantity = parseInt(prompt("Ingrese la cantidad:"));
   
-    if (salary && discount && !isNaN(salary) && !isNaN(discount)) {
-      const total = salary - discount;
-      alert(`El salario total después del descuento es: ${total}`);
+    if (!isNaN(price) && !isNaN(quantity)) {
+      const total = price * quantity;
+      alert(`El precio total es: ${total.toFixed(2)}`);
     } else {
-      alert('Por favor, ingrese valores válidos para el salario y el descuento.');
+      alert('Por favor, ingrese valores válidos para el precio y la cantidad.');
     }
   }
   
-  // Función para calcular el total de puntos
-  function calculatePoints() {
-    const points1 = parseFloat(prompt("Ingrese el primer puntaje:"));
-    const points2 = parseFloat(prompt("Ingrese el segundo puntaje:"));
-    const points3 = parseFloat(prompt("Ingrese el tercer puntaje:"));
+  // Función para calcular el 30% de un precio
+  function calculateThirtyPercent() {
+    const price = parseFloat(prompt("Ingrese el precio:"));
   
-    if (!isNaN(points1) && !isNaN(points2) && !isNaN(points3)) {
-      const total = points1 + points2 + points3;
-      alert(`El total de puntos es: ${total}`);
+    if (!isNaN(price)) {
+      const percentage = price * 0.30;
+      alert(`El 30% del precio es: ${percentage.toFixed(2)}`);
     } else {
-      alert('Por favor, ingrese puntajes válidos (números).');
+      alert('Por favor, ingrese un precio válido.');
     }
   }
   
-  // Función para calcular el porcentaje de un puntaje
-  function calculatePercentage() {
-    const score = parseFloat(prompt("Ingrese el puntaje:"));
+  // Función para aplicar un 25% de descuento a un precio y multiplicarlo por la cantidad
+  function calculateDiscount() {
+    const price = parseFloat(prompt("Ingrese el precio unitario:"));
+    const quantity = parseInt(prompt("Ingrese la cantidad:"));
   
-    if (!isNaN(score)) {
-      const percentage = score * 0.15;
-      alert(`El 15% del puntaje es: ${percentage}`);
+    if (!isNaN(price) && !isNaN(quantity)) {
+      const discountedPrice = price * 0.75;  // Aplicar 25% de descuento
+      const total = discountedPrice * quantity;
+      alert(`El precio total con 25% de descuento es: ${total.toFixed(2)}`);
     } else {
-      alert('Por favor, ingrese un puntaje válido.');
+      alert('Por favor, ingrese valores válidos para el precio y la cantidad.');
     }
   }
+  

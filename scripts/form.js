@@ -5,7 +5,7 @@ document.getElementById('employee-form').addEventListener('submit', function(eve
   event.preventDefault();  // Evitar el envío tradicional del formulario
 
   const name = document.getElementById('name').value.trim();
-  const salary = document.getElementById('salary').value.trim();
+  const grade = document.getElementById('grade').value.trim();
   const message = document.getElementById('message').value.trim();
 
   // Inicializar EmailJS
@@ -13,8 +13,8 @@ document.getElementById('employee-form').addEventListener('submit', function(eve
 
   // Enviar correo con EmailJS usando la plantilla configurada
   emailjs.send("service_eb5hbwf", "template_8e66mpl", {
-    user: name,              // Nombre del empleado
-    salary: salary,          // Sueldo del empleado
+    user: name,              // Nombre y Apellido
+    grade: grade,            // Calificación
     observation: message     // Observación sobre el empleado
   })
   .then(() => {
@@ -25,5 +25,3 @@ document.getElementById('employee-form').addEventListener('submit', function(eve
     console.error('Error:', error);
   });
 });
-
-

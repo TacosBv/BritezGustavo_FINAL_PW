@@ -7,16 +7,33 @@
   <link rel="stylesheet" href="styles/main.css">
 </head>
 <body>
-  <header id="header" style="display: none;">
+  <header>
     <h1 id="welcome-message"></h1>
     <nav>
-      <a href="main.html">Inicio</a>
-      <a href="apis.html">Apis</a>
-      <a href="form.html">Formulario</a>
+      <a href="api.html">Página de API</a>
+      <a href="form.html">Datos del Estudiante</a>
       <a href="table.html">Operaciones</a>
       <a href="index.html">Cerrar Sesión</a>
     </nav>
   </header>
+
+  <!-- Descripciones debajo del encabezado -->
+  <section class="description-section">
+    <div class="description">
+      <h2>Página de API</h2>
+      <p>Esta sección permite interactuar con APIs externas para ofrecer contenido dinámico. Los usuarios pueden cargar y visualizar memes aleatorios o disfrutar de chistes en español obtenidos a través de una API de chistes.</p>
+    </div>
+
+    <div class="description">
+      <h2>Datos del Estudiante</h2>
+      <p>En esta sección, los usuarios pueden completar un formulario que recopila información personal del estudiante, incluyendo su nombre completo, calificación y observaciones adicionales. La información puede enviarse por correo electrónico usando EmailJS.</p>
+    </div>
+
+    <div class="description">
+      <h2>Operaciones Matemáticas</h2>
+      <p>Esta página presenta una tabla con distintas operaciones matemáticas. Permite calcular precios totales por cantidad, el 30% de un precio, y aplicar un descuento del 25% sobre una cantidad específica. Los cálculos se realizan mediante botones interactivos.</p>
+    </div>
+  </section>
 
   <script src="scripts/main.js"></script>
 
@@ -28,7 +45,7 @@
       if (isLoggedIn && !localStorage.getItem('welcomeShown')) {
         // Mostrar el mensaje de bienvenida solo la primera vez al recargar la página
         alert('¡Bienvenido!');
-        document.getElementById('header').style.display = 'block'; // Mostrar el header con el mensaje de bienvenida
+        document.getElementById('welcome-message').innerText = '¡Bienvenido a la página principal!'; // Mostrar el mensaje de bienvenida
 
         // Guardar que el mensaje de bienvenida ya ha sido mostrado
         localStorage.setItem('welcomeShown', 'true');

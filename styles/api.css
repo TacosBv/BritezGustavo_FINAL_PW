@@ -1,3 +1,5 @@
+/* main.css */
+/* main.css */
 body {
   font-family: Arial, sans-serif;
   background: linear-gradient(to right, #347a92, #347a92);
@@ -57,12 +59,13 @@ button:hover {
   margin: 2rem;
 }
 
-#api-content {
-  margin-top: 2rem;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-}
+  
+  #api-content {
+    margin-top: 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
 
 /* Estilos específicos para la sección de contacto */
 .contact-section {
@@ -117,7 +120,7 @@ button:hover {
 
 /* Botón */
 .contact-section button {
-  background-color: #0d89e8;
+  background-color: #3498db;
   color: white;
   border: none;
   padding: 0.6rem 1.2rem;
@@ -128,35 +131,7 @@ button:hover {
 }
 
 .contact-section button:hover {
-  background-color: #022d859d;
+  background-color: #2980b9;
   transform: translateY(-2px); /* Efecto de elevación leve */
-}
-
-/* Estilos para la sección de descripciones */
-.description-section {
-  margin: 2rem 0;
-  text-align: center;
-}
-
-.description {
-  background-color: rgba(255, 255, 255, 0.1);
-  padding: 1.5rem;
-  margin: 1rem auto;
-  max-width: 600px;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  color: #f0f0f0;
-}
-
-.description h2 {
-  color: #ffffff;
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
-}
-
-.description p {
-  font-size: 1.1rem;
-  line-height: 1.5;
-  margin: 0;
 }
 

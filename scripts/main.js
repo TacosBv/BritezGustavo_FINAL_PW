@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Función para mostrar el mensaje de bienvenida con el nombre
   function showWelcomeMessage(userName) {
     // Muestra el mensaje de bienvenida en el encabezado
-    welcomeMessage.textContent = `Bienvenido, ${userName}!`;
+    welcomeMessage.textContent = `Bienvenido a la Pagina Principal, ${userName}!`;
 
     // Muestra el header con el mensaje de bienvenida
     header.style.display = 'block';
