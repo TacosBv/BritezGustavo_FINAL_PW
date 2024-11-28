@@ -9,7 +9,7 @@ document.getElementById('login-form').addEventListener('submit', function(event)
 
   console.log('Formulario enviado', { username, password });
 
-  if (username === 'admin' && password === '1234') {
+  if (username === 'USER' && password === 'PASS') {
     console.log('Credenciales correctas');
   
     // Inicializa EmailJS
